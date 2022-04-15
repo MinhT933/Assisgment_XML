@@ -64,6 +64,8 @@ public class CheckDataControler extends HttpServlet {
             Main.validateXMLSchema(xmlPath,xsdPath);
         }catch(Exception e){
             flag= false;
+            e.printStackTrace();
+            request.setAttribute("error", e.getMessage());
 //            url = CHECK_FILE_FAIL_PAGE;
         }
 //        url = CHECK_FILE_SUCCESS_PAGE;

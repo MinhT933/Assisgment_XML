@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>File .xml check is false</h1>
+         <h1>${requestScope.error}</h1>
     </body>
 </html>

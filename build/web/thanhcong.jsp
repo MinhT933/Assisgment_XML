@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>File .xml check is true</h1>
+        <h1>File .xml check is  well form</h1>
+        <h1>File .xml check is  well form</h1>
     </body>
 </html>
