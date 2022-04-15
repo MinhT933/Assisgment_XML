@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>ok rồi nha cưng</h1>
+        <h1>File .xml check is true</h1>
     </body>
 </html>
