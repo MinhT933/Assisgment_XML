@@ -15,10 +15,28 @@ and open the template in the editor.
             <input type="submit" name="btnAction" value="Generate Data" />
         </form>
         <div style="margin-top: 10px">
-                <form method="post" action="CheckDataControler" enctype="multipart/form-data">
-                    <input name="data" type="file" />
-                    <input type="submit" name="btnAction" value="Check Data" />
-                </form>
+            <form method="post" action="CheckDataControler" enctype="multipart/form-data">
+                <input name="data" type="file" />
+                <input type="submit" name="btnAction" value="Check Data" />
+            </form>
         </div>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>price</th>
+                <th>CreateDate</th>
+                <th>CateID</th>
+            </tr>
+            <c:forEach items="${themeList}" var="theme" varStatus="status">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </c:forEach>
+        </table>
     </body>
 </html>

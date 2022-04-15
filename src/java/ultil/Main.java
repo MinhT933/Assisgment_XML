@@ -127,8 +127,9 @@ public class Main {
                 // You can use that for debugging
 
                 transformer.transform(domSource, streamResult);
-                System.out.println("Done creating XML File");
+              
             }
+              System.out.println("Done creating XML File");
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
         } catch (TransformerException tfe) {
