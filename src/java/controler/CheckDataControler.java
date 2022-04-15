@@ -64,6 +64,7 @@ public class CheckDataControler extends HttpServlet {
             Main.validateXMLSchema(xmlPath,xsdPath);
         }catch(Exception e){
             flag= false;
+<<<<<<< HEAD
            
         }
         if (flag){
@@ -72,6 +73,16 @@ public class CheckDataControler extends HttpServlet {
             url = CHECK_FILE_FAIL_PAGE;
         }
        
+=======
+//            url = CHECK_FILE_FAIL_PAGE;
+        }
+//        url = CHECK_FILE_SUCCESS_PAGE;
+        if(flag){
+            url = CHECK_FILE_SUCCESS_PAGE;
+        } else {
+            url = CHECK_FILE_FAIL_PAGE;
+        }
+>>>>>>> main
         
         System.out.println("xml file is valid"+ flag);
         
