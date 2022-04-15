@@ -52,7 +52,7 @@ public class CheckDataControler extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SAXException {
         response.setContentType("text/html;charset=UTF-8");
-         String url = CHECK_FILE_FAIL_PAGE;
+//         String url = CHECK_FILE_FAIL_PAGE;
         Part filePart = request.getPart("data");
         
             String xmlPath = request.getServletContext().getRealPath("/xml/plant.xml");
@@ -70,14 +70,13 @@ public class CheckDataControler extends HttpServlet {
         }
 //        url = CHECK_FILE_SUCCESS_PAGE;
         if(flag){
-            url = CHECK_FILE_SUCCESS_PAGE;
-        } else {
-            url = CHECK_FILE_FAIL_PAGE;
-        }
+//            url = CHECK_FILE_SUCCESS_PAGE;
+            request.setAttribute("true", "file validation/n file is well form");
+        } 
         
         System.out.println("xml file is valid"+ flag);
         
-        request.getRequestDispatcher(url).forward(request, response);
+        request.getRequestDispatcher("index.html").forward(request, response);
         
         
     }

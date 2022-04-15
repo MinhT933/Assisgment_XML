@@ -59,5 +59,35 @@ public class PlantDAO {
       StreamResult rs = new StreamResult(path_to_file);
       tf.transform(dsr,rs);
    }
-    
+   
+   public void Delete(String Id){
+       try {
+       Document d = PlantDAO.getDocument("xml\\plant.xml");
+       NodeList nl = d.getElementsByTagName("plant");
+         for(int i = 0; i<nl.getLength();i++){
+             Element estudent = (Element)nl.item(i);
+             if(estudent.getElementsByTagName("id").item(0).getTextContent().equals(Id)){
+                 estudent.getParentNode().removeChild(estudent);
+             }
+         }
+         PlantDAO.saveXMLContent(d, "xml\\plant.xml");
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+   }
+    public void Update ( String name, String price ,String des, String Cate, String Date ) throws TransformerException{
+         Document d = PlantDAO.getDocument("xml\\plant.xml");
+         NodeList nl = d.getElementsByTagName("plant");
+         for(int i = 0; i<nl.getLength();i++){
+             Element estudent = (Element)nl.item(i);
+             if(estudent.getElementsByTagName("id").item(0).getTextContent().equals(name)){
+                estudent.getElementsByTagName("price").item(0).setTextContent(price);
+                estudent.getElementsByTagName("des").item(0).setTextContent(des);
+                estudent.getElementsByTagName("Cate").item(0).setTextContent(Cate);
+                estudent.getElementsByTagName("Date").item(0).setTextContent(Date);
+             }
+              
+         }
+        PlantDAO.saveXMLContent(d, "xml\\plant.xml");
+    }
 }

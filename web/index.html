@@ -18,9 +18,16 @@ and open the template in the editor.
             <form method="post" action="CheckDataControler" enctype="multipart/form-data">
                 <input name="data" type="file" />
                 <input type="submit" name="btnAction" value="Check Data" />
+        <c:if text= ${requestScope.error}>
+            <h1> sai roi  </h1>
+        </c:if>
+        <c:if text= ${requestScope.true}>
+            <h1> true  </h1>
+        </c:if>
             </form>
+      
         </div>
-
+        
         <table>
             <tr>
                 <th>ID</th>
