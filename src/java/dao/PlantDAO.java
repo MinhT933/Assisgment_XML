@@ -19,7 +19,7 @@ import javax.xml.transform.stream.StreamResult;
  * @author pc
  */
 public class PlantDAO {
-    public  static  Document getDocument(String path_to_file){
+    public static  Document getDocument(String path_to_file){
      Document d = null;
      DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
      try {

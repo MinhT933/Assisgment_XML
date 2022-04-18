@@ -15,15 +15,20 @@ public class plantDTO {
     int ID;
     String name;
     float price;
-    String CateID;
+    String description;
     Date createDate;
+    String cateID;
 
-    public plantDTO(int ID, String name, float price, String CateID, Date createDate) {
+    public plantDTO() {
+    }
+
+    public plantDTO(int ID, String name, float price, String description, Date createDate, String cateID) {
         this.ID = ID;
         this.name = name;
         this.price = price;
-        this.CateID = CateID;
+        this.description = description;
         this.createDate = createDate;
+        this.cateID = cateID;
     }
 
     public int getID() {
@@ -50,12 +55,12 @@ public class plantDTO {
         this.price = price;
     }
 
-    public String getCateID() {
-        return CateID;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCateID(String CateID) {
-        this.CateID = CateID;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getCreateDate() {
@@ -66,10 +71,23 @@ public class plantDTO {
         this.createDate = createDate;
     }
 
+    public String getCateID() {
+        return cateID;
+    }
+
+    public void setCateID(String cateID) {
+        this.cateID = cateID;
+    }
+
     @Override
     public String toString() {
-        return "plantDTO{" + "ID=" + ID + ", name=" + name + ", price=" + price + ", CateID=" + CateID + ", createDate=" + createDate + '}';
+        return "plantDTO{" +
+                "ID=" + ID +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", createDate=" + createDate +
+                ", cateID='" + cateID + '\'' +
+                '}';
     }
-    
-    
 }
