@@ -9,11 +9,14 @@ package dto;
  *
  * @author pc
  */
-public class CategoriesDTO {
+public class CategoryDTO {
     String name;
     String ID;
 
-    public CategoriesDTO(String name, String ID) {
+    public CategoryDTO() {
+    }
+
+    public CategoryDTO(String name, String ID) {
         this.name = name;
         this.ID = ID;
     }

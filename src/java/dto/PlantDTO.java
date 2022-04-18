@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author pc
  */
-public class plantDTO {
+public class PlantDTO {
     int ID;
     String name;
     float price;
@@ -19,10 +19,10 @@ public class plantDTO {
     Date createDate;
     String cateID;
 
-    public plantDTO() {
+    public PlantDTO() {
     }
 
-    public plantDTO(int ID, String name, float price, String description, Date createDate, String cateID) {
+    public PlantDTO(int ID, String name, float price, String description, Date createDate, String cateID) {
         this.ID = ID;
         this.name = name;
         this.price = price;
