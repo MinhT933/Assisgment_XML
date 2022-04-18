@@ -12,26 +12,27 @@ import java.util.Date;
  * @author pc
  */
 public class plantDTO {
-    int ID;
+    int id;
     String name;
     float price;
-    String CateID;
-    Date createDate;
+    String cateID;
+    String createDate;
+    
 
-    public plantDTO(int ID, String name, float price, String CateID, Date createDate) {
-        this.ID = ID;
+    public plantDTO(int id, String name, float price, String cateID, String createDate) {
+        this.id = id;
         this.name = name;
         this.price = price;
-        this.CateID = CateID;
+        this.cateID = cateID;
         this.createDate = createDate;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -51,25 +52,27 @@ public class plantDTO {
     }
 
     public String getCateID() {
-        return CateID;
+        return cateID;
     }
 
-    public void setCateID(String CateID) {
-        this.CateID = CateID;
+    public void setCateID(String cateID) {
+        this.cateID = cateID;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
     @Override
     public String toString() {
-        return "plantDTO{" + "ID=" + ID + ", name=" + name + ", price=" + price + ", CateID=" + CateID + ", createDate=" + createDate + '}';
+        return "plantDTO{" + "id=" + id + ", name=" + name + ", price=" + price + ", cateID=" + cateID + ", createDate=" + createDate + '}';
     }
+
+   
     
-    
+
 }

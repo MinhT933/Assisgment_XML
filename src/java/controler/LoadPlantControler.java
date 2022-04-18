@@ -5,23 +5,31 @@
  */
 package controler;
 
+import dao.CategoryDAO;
+import dao.PlantDAO;
+import dto.CategoriesDTO;
+import dto.plantDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 
 /**
  *
  * @author pc
  */
-public class MainControler extends HttpServlet {
-     private final String INDEX_PAGE = "index.html";
-    private final String DOWLOAD_DATA = "DownloadControler";
-    private final String CHECK_DATA = "CheckDataControler";
-    private final String LOAD_DATA = "LoadPlantControler";
-    
+@WebServlet(name = "LoadPlantControler", urlPatterns = {"/LoadPlantControler"})
+public class LoadPlantControler extends HttpServlet {
+    private final String LOAD_PLANT = "loadPlant.jsp";
+    private final String ERROR = "error.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,25 +41,25 @@ public class MainControler extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParserConfigurationException, SAXException {
         response.setContentType("text/html;charset=UTF-8");
-        String action = request.getParameter("btnAction");
-        String url = INDEX_PAGE;
-        try {
-            if ("Generate Data".equals(action)) {
-                url = DOWLOAD_DATA;
-            }
-            if("Check Data".equals(action)){
-                url = CHECK_DATA;
-            }if("LoadProduct".equals(action)|| "search".equals(action)){
-                url =LOAD_DATA;
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+         String url = ERROR;
+        String xmlPath = request.getServletContext().getRealPath("/xml/plant.xml");
+        String idCategory = request.getParameter("idCategory");
+        String filter = request.getParameter("searchValue");
+        request.setAttribute("filter", filter);
+        
+        
+         request.setAttribute("idCategory", idCategory);
+            CategoryDAO daoCate = new CategoryDAO();
+            List<CategoriesDTO> categories = daoCate.getAll(xmlPath);
+            request.setAttribute("categories", categories);
+            PlantDAO dao = new PlantDAO();
+            List<plantDTO> plant = dao.getAllPlant(xmlPath, idCategory, filter);
+            request.setAttribute("plant", plant);
+            url = LOAD_PLANT;
             request.getRequestDispatcher(url).forward(request, response);
-        }
+            
        
     }
 
@@ -67,7 +75,13 @@ public class MainControler extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(LoadPlantControler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAXException ex) {
+            Logger.getLogger(LoadPlantControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -81,7 +95,13 @@ public class MainControler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(LoadPlantControler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAXException ex) {
+            Logger.getLogger(LoadPlantControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

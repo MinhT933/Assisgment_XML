@@ -11,11 +11,11 @@ package dto;
  */
 public class CategoriesDTO {
     String name;
-    String ID;
+    String id;
 
-    public CategoriesDTO(String name, String ID) {
+    public CategoriesDTO(String name, String id) {
         this.name = name;
-        this.ID = ID;
+        this.id = id;
     }
 
     public String getName() {
@@ -26,18 +26,16 @@ public class CategoriesDTO {
         this.name = name;
     }
 
-    public String getID() {
-        return ID;
+    public String getId() {
+        return id;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
-        return "CategoriesDTO{" + "name=" + name + ", ID=" + ID + '}';
+        return "CategoriesDTO{" + "name=" + name + ", id=" + id + '}';
     }
-    
-    
 }
